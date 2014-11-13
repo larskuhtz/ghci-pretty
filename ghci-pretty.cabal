@@ -1,5 +1,5 @@
 Name: ghci-pretty
-Version: 0.0.1
+Version: 0.0.2
 Synopsis: colored pretty-printing within ghci
 description:
     A tiny package that combines the ipprint package and
