@@ -2,9 +2,28 @@ Name: ghci-pretty
 Version: 0.0.1
 Synopsis: colored pretty-printing within ghci
 description:
-    a tiny package that combines the ipprint package and
+    A tiny package that combines the ipprint package and
     the hscolour package to provide colored pretty-printing
-    in ghci
+    in ghci.
+    .
+    /Usage/
+    .
+    Add the following lines to your @ghci.conf@ file:
+    .
+    > -- Pretty printing of it
+    > import IPPrint.Colored
+    > :set -interactive-print=IPPrint.Colored.cpprint
+    > :def cp (\_ -> return ":set -interactive-print=IPPrint.Colored.cpprint")
+    > :def ncp (\_ -> return ":set -interactive-print=print")
+    .
+    Now you can enable colored pretty-printing in ghci with the commmand
+    .
+    > :cp
+    .
+    The following command turns colored pretty-printing off again
+    .
+    > :ncp
+
 Homepage: https://github.com/larskuhtz/ghci-pretty
 License: MIT
 License-file: LICENSE
