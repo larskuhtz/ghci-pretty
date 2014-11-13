@@ -1,13 +1,17 @@
 Name: ghci-pretty
 Version: 0.0.1
-Synopsis: Tiny hack for colored pretty-printing within ghci
+Synopsis: colored pretty-printing within ghci
+description:
+    a tiny package that combines the ipprint package and
+    the hscolour package to provide colored pretty-printing
+    in ghci
 Homepage: https://github.com/larskuhtz/ghci-pretty
 License: MIT
 License-file: LICENSE
 Author: Lars Kuhtz
 Maintainer: Lars Kuhtz <lakuhtz@gmail.com>
 Copyright: Copyright (c) 2014 Lars Kuhtz <lakuhtz@gmail.com>
-Category: Text
+Category: Development
 Build-type: Simple
 Cabal-version: >= 1.16
 

@@ -1,8 +1,10 @@
 [![Build Status](https://travis-ci.org/larskuhtz/ghci-pretty.svg?branch=master)](https://travis-ci.org/larskuhtz/ghci-pretty)
 
-A tiny hack for colored pretty printing in ghci.
+A tiny package that combines the [ipprint](https://hackage.haskell.org/package/ipprint)
+package and the [hscolour](https://hackage.haskell.org/package/hscolour)
+package to provide colored pretty-printing in ghci.
 
-This is the only real code in this package:
+Here is all the code from this package:
 
 ```.haskell
 module IPPrint.Colored
@@ -33,6 +35,7 @@ Add the following lines to your `ghci.conf` file:
 import IPPrint.Colored
 :set -interactive-print=IPPrint.Colored.cpprint
 :def cp (\_ -> return ":set -interactive-print=IPPrint.Colored.cpprint")
+:def ncp (\_ -> return ":set -interactive-print=print")
 ```
 
 Now you can enable colored pretty-printing in ghci with the commmand
@@ -41,3 +44,8 @@ Now you can enable colored pretty-printing in ghci with the commmand
 :cp
 ```
 
+The following command turns colored pretty-printing off again
+
+```.haskell
+:ncp
+```
