@@ -18,6 +18,9 @@ Cabal-version: >= 1.16
 extra-doc-files:
     README.md
 
+extra-source-files:
+    constraints
+
 source-repository head
     type: git
     location: https://github.com/larskuhtz/ghci-pretty
