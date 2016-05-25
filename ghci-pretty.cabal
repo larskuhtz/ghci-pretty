@@ -11,9 +11,9 @@ description:
     Add the following lines to your @ghci.conf@ file:
     .
     > -- Pretty printing of it
-    > import IPPrint.Colored
-    > :set -interactive-print=IPPrint.Colored.cpprint
-    > :def cp (\_ -> return ":set -interactive-print=IPPrint.Colored.cpprint")
+    > import Text.Show.Pretty.Colored
+    > :set -interactive-print=Text.Show.Pretty.Colored.cpprint
+    > :def cp (\_ -> return ":set -interactive-print=Text.Show.Pretty.Colored.cpprint")
     > :def ncp (\_ -> return ":set -interactive-print=print")
     .
     Now you can enable colored pretty-printing in ghci with the commmand
@@ -49,11 +49,11 @@ Library
     hs-source-dirs: src
 
     exposed-modules:
-        IPPrint.Colored
+        Text.Show.Pretty.Colored
 
     build-depends:
         base == 4.*,
-        ipprint >= 0.5,
+        pretty-show >= 1.6,
         hscolour >= 1.20
 
     ghc-options: -Wall
