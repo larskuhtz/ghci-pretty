@@ -35,7 +35,14 @@ import IPPrint
 import Language.Haskell.HsColour
 import Language.Haskell.HsColour.Colourise
 import Language.Haskell.HsColour.Output
+import Extra.Terminal (getWidth)
+
+defaultLineWidth :: Int
+defaultLineWidth = 80
 
 cpprint :: Show a => a -> IO ()
-cpprint = putStrLn . hscolour (TTYg XTerm256Compatible) defaultColourPrefs False False "" False . pshow
+cpprint x = do
+  mw <- getWidth
+  let width = maybe defaultLineWidth id mw
+  putStrLn . hscolour (TTYg XTerm256Compatible) defaultColourPrefs False False "" False . pshowWidth width $ x
 
