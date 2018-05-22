@@ -54,7 +54,8 @@ Library
     build-depends:
         base == 4.*,
         ipprint >= 0.5,
-        hscolour >= 1.20
+        hscolour >= 1.20,
+        sr-extra >= 1.46.3.1
 
     ghc-options: -Wall
 
