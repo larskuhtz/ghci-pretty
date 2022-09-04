@@ -1,5 +1,5 @@
 Name: ghci-pretty
-Version: 0.0.2
+Version: 0.1.0
 Synopsis: colored pretty-printing within ghci
 description:
     A tiny package that combines the ipprint package and
@@ -11,9 +11,10 @@ description:
     Add the following lines to your @ghci.conf@ file:
     .
     > -- Pretty printing of it
-    > import IPPrint.Colored
-    > :set -interactive-print=IPPrint.Colored.cpprint
-    > :def cp (\_ -> return ":set -interactive-print=IPPrint.Colored.cpprint")
+    > :set -package ghci-pretty
+    > import Text.Show.Pretty.Colored
+    > :set -interactive-print=cpprint
+    > :def cp (\_ -> return ":set -interactive-print=cpprint")
     > :def ncp (\_ -> return ":set -interactive-print=print")
     .
     Now you can enable colored pretty-printing in ghci with the commmand
@@ -49,13 +50,12 @@ Library
     hs-source-dirs: src
 
     exposed-modules:
-        IPPrint.Colored
+        Text.Show.Pretty.Colored
 
     build-depends:
         base == 4.*,
-        ipprint >= 0.5,
-        hscolour >= 1.20,
-        sr-extra >= 1.46.3.1
+        pretty-show >= 0.5,
+        hscolour >= 1.20
 
     ghc-options: -Wall
 
