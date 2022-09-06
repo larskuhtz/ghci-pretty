@@ -14,9 +14,10 @@
 -- Add the following lines to your @ghci.conf@ file:
 --
 -- > -- Pretty printing of it
--- > import IPPrint.Colored
--- > :set -interactive-print=IPPrint.Colored.cpprint
--- > :def cp (\_ -> return ":set -interactive-print=IPPrint.Colored.cpprint")
+-- > :set -package ghci-pretty
+-- > import Text.Show.Pretty.Colored
+-- > :set -interactive-print=cpprint
+-- > :def cp (\_ -> return ":set -interactive-print=cpprint"
 -- > :def ncp (\_ -> return ":set -interactive-print=print")
 --
 -- Now you can enable colored pretty-printing in ghci with the commmand
@@ -27,22 +28,16 @@
 --
 -- > :ncp
 --
-module IPPrint.Colored
+module Text.Show.Pretty.Colored
 ( cpprint
 ) where
 
-import IPPrint
+import Text.Show.Pretty
 import Language.Haskell.HsColour
 import Language.Haskell.HsColour.Colourise
 import Language.Haskell.HsColour.Output
-import Extra.Terminal (getWidth)
-
-defaultLineWidth :: Int
-defaultLineWidth = 80
 
 cpprint :: Show a => a -> IO ()
 cpprint x = do
-  mw <- getWidth
-  let width = maybe defaultLineWidth id mw
-  putStrLn . hscolour (TTYg XTerm256Compatible) defaultColourPrefs False False "" False . pshowWidth width $ x
+  putStrLn . hscolour (TTYg XTerm256Compatible) defaultColourPrefs False False "" False . ppShow $ x
 
